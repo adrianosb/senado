@@ -74,6 +74,8 @@ function find() {
         dataType: "json",
         success: function (e) {
             console.log('Sucesso!');
+            console.log(e);
+            $('#teste').text(JSON.stringify(e));
         },
         error: function (e) {
             console.log('Error: ' + e);

@@ -66,7 +66,7 @@ class SenadoService:
     def senadores(self, start, end):
 
         db = self.getDb()
-        result = db.votacoes.senadores({'DataSessao': {'$lt': end, '$gte': start}}, {'Votos': 1}).limit(1)
+        result = db.votacoes.find({'DataSessao': {'$lt': end, '$gte': start}}, {'Votos': 1})
 
         ts = TreeSet([])
 
@@ -84,8 +84,8 @@ class SenadoService:
 
 
     def votos(self, senadores, start, end):
-        nomeFiltro = [u"José Sarney"]
-        senadores = nomeFiltro
+        # nomeFiltro = [u"José Sarney"]
+        # senadores = nomeFiltro
 
         db = self.getDb()
         result = db.votacoes.find({
@@ -98,7 +98,8 @@ class SenadoService:
 
         result = self.reduce(map_senadores)
 
-        pprint.pprint(result)
+        # pprint.pprint(result)
+        return result
 
 
     def map(self, result, senadores):

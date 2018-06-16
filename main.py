@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, jsonify, request
 from datetime import datetime
-from db.senado_service import SenadoService
+from service.senado_service import SenadoService
 import json
 
 app = Flask(__name__)
@@ -26,7 +26,9 @@ def find():
     data = request.get_json()
     #TODO validar campos
 
-    return jsonify(True)
+    j = SenadoService().votos(data["senadores"],data["start"],data["end"]);
+
+    return jsonify(j)
 
 
 if __name__ == '__main__':

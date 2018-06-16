@@ -2,7 +2,7 @@
 from datetime import timedelta
 from datetime import date
 from dadosabertos_plenario_lista_votacao import Votacao
-from db.senado_service import SenadoService
+from service.senado_service import SenadoService
 import time
 
 data_votacao = SenadoService().get_ultima_data()
