@@ -73,12 +73,26 @@ function find() {
         data: JSON.stringify(item),
         dataType: "json",
         success: function (e) {
-            console.log('Sucesso!');
-            console.log(e);
+            //console.log('Sucesso!');
+            //console.log(e);
             $('#teste').text(JSON.stringify(e));
+            process(e);
         },
         error: function (e) {
             console.log('Error: ' + e);
         }
     });
+}
+
+function process(data){
+    var senadores = [];
+    var siglas =  new Map();
+    for (var key in data) {
+        senadores.push(key);
+        for (var sigla in data[key]) {
+            siglas.set(sigla,0);
+        }
+    }
+    console.log(senadores);
+    console.log(siglas);
 }
