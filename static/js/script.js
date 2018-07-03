@@ -93,6 +93,13 @@ function process(data){
             siglas.set(sigla,0);
         }
     }
-    console.log(senadores);
-    console.log(siglas);
+    for (var key in data) {
+        var _siglas = new Map(siglas);
+        for (var sigla in data[key]) {
+            //_siglas[sigla] = data[key][sigla];
+            _siglas.set(sigla, data[key][sigla]);
+        }
+        data[key].siglas = _siglas;
+    }
+    console.log(data);
 }

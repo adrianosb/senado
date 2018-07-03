@@ -88,11 +88,15 @@ class SenadoService:
         # senadores = nomeFiltro
 
         db = self.getDb()
-        result = db.votacoes.find({
-            "Votos.VotoParlamentar.NomeParlamentar": {
-                '$in': senadores
-            }
-        })
+        result = db.votacoes.find( #{
+             #[
+                # {'DataSessao': {'$lt': end, '$gte': start}}#,
+                {"Votos.VotoParlamentar.NomeParlamentar": {
+                    '$in': senadores
+                }}
+            #]
+        #}
+        )#.limit(100)
 
         map_senadores = self.map(result, senadores)
 
