@@ -97,11 +97,46 @@ function process(data){
     for (var key in data) {
         var _siglas = new Map(siglas);
         for (var sigla in data[key]) {
-            //_siglas[sigla] = data[key][sigla];
             _siglas.set(sigla, data[key][sigla]);
         }
         data[key].siglas = _siglas;
     }
-    console.log(siglas);
-    console.log(data);
+
+    var datasets = [];
+    for (var key in data) {
+        var color = dynamicColors();
+        datasets.push({
+        label: key,
+//        backgroundColor: dynamicColors(),
+        backgroundColor: "transparent",
+        borderColor: color,
+        fill: false,
+        radius: 6,
+        pointRadius: 6,
+        pointBorderWidth: 3,
+        pointBackgroundColor: color,
+        pointBorderColor: color,
+        pointHoverRadius: 10,
+        data: Array.from(data[key].siglas.values())
+      });
+    }
+
+    var marksData = {
+      labels: Array.from(siglas.keys()),
+      datasets: datasets
+    };
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    var radarChart = new Chart(ctx, {
+      type: 'radar',
+      data: marksData
+    });
+}
+
+function dynamicColors() {
+    var r = Math.floor(Math.random() * 255);
+    var g = Math.floor(Math.random() * 255);
+    var b = Math.floor(Math.random() * 255);
+    return "rgba(" + r + "," + g + "," + b + ", 0.8)";
 }
