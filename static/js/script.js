@@ -9,6 +9,7 @@ const getSenadores = function(start, end) {
     d2 = moment(end, DATE_FORMAT_BR).format(DATE_FORMAT);
 
     $.getJSON( "/api/v0.1/senadores/"+d1+"/"+d2, function( data ) {
+        $('.selectpicker').find('option').remove()
         $.each(data, function (key, entry) {
             $('.selectpicker').append($('<option></option>').attr('value', entry).text(entry));
         });
@@ -101,5 +102,6 @@ function process(data){
         }
         data[key].siglas = _siglas;
     }
+    console.log(siglas);
     console.log(data);
 }

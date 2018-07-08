@@ -24,9 +24,11 @@ def get_senadores(start, end):
 @app.route('/api/v0.1/senadores', methods=['POST'])
 def find():
     data = request.get_json()
+    start = datetime.strptime(data["start"], '%d/%m/%Y')
+    end = datetime.strptime(data["end"], '%d/%m/%Y')
     #TODO validar campos
 
-    j = SenadoService().votos(data["senadores"],data["start"],data["end"]);
+    j = SenadoService().votos(data["senadores"], start, end);
 
     return jsonify(j)
 
