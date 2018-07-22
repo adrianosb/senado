@@ -47,13 +47,21 @@
             </div>
         </div>
     </form>
-      <div class="row controls p-3">
-        <div class=" border border-secondary rounded" id="teste">
+      <!--<div class="row controls p-3">-->
+        <!--<div class=" border border-secondary rounded" id="teste">-->
+      <!--</div>-->
 
-        </div>
-        <canvas id="myChart" width="200" height="200"></canvas>
-      </div>
   </div>
+      <!--<div class="row">-->
+        <div >
+            <canvas id="myChartBar" width="800" height="300"></canvas>
+        </div>
+      <!--</div>-->
+      <!--<div class="row">-->
+        <div >
+            <canvas id="myChart" ></canvas>
+        </div>
+      <!--</div>-->
 
 
     <!-- Optional JavaScript -->
@@ -67,7 +75,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/i18n/defaults-pt_BR.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.3.0/dist/chartjs-plugin-datalabels.min.js"></script>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/palette.js') }}"></script>
   </body>
 </html>
