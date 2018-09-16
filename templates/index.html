@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" integrity="sha256-JDBcnYeV19J14isGd3EtnsCQK05d8PczJ5+fvEvBJvI=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.standalone.min.css"  crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
@@ -40,10 +41,15 @@
             <div class="row">
                 <div class="col-8">
                     <label>Período:</label>
-                    <div class="input-daterange input-group" id="datepicker">
-                        <input type="text" class="input-sm form-control" id="start" value="" />
-                        <span class="input-group-addon">até</span>
-                        <input type="text" class="input-sm form-control" id="end" value="" />
+                    <div class="input-group input-daterange" id="datepicker">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">De</span>
+                        </div>
+                        <input type="text" class="input-sm form-control" id="start" value="" placeholder="01/01/2014" />
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">até</span>
+                        </div>
+                        <input type="text" class="input-sm form-control" id="end" value="" placeholder="01/05/2015" />
                     </div>
                     <small class="form-text text-muted">Selecione o período para filtrar os senadores</small>
                  </div>
