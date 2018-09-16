@@ -155,14 +155,15 @@ function process(data){
         labels: senadores,
         datasets: [ {
 //          type: 'bar',
-          label: 'Não',
-          backgroundColor: 'rgb(255, 99, 132)',
-          data: votouNao,
-        }, {
-//          type: 'bar',
           label: 'Sim',
           backgroundColor: 'rgb(54, 162, 235)',
           data: votouSim
+        },
+        {
+//          type: 'bar',
+          label: 'Não',
+          backgroundColor: 'rgb(255, 99, 132)',
+          data: votouNao,
         }]
       },
       options: {
@@ -187,7 +188,10 @@ function process(data){
                 font: {
                     weight: 'bold'
                 },
-                formatter: Math.round
+                formatter: function(value, context) {
+                    var sum = context.chart.config.data.datasets[0].data[context.dataIndex] + context.chart.config.data.datasets[1].data[context.dataIndex];
+                    return  Math.round(value*100/sum)+"% ("+value+")";
+                }
             }
         }
       }
