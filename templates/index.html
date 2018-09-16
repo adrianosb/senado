@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 
-    <title>S</title>
+    <title>Visão analítica do senado Brasileiro</title>
   </head>
   <body>
 
@@ -41,9 +41,9 @@
                 <div class="col-8">
                     <label>Período:</label>
                     <div class="input-daterange input-group" id="datepicker">
-                        <input type="text" class="input-sm form-control" id="start" value="01/08/2015" />
+                        <input type="text" class="input-sm form-control" id="start" value="" />
                         <span class="input-group-addon">até</span>
-                        <input type="text" class="input-sm form-control" id="end" value="01/02/2016" />
+                        <input type="text" class="input-sm form-control" id="end" value="" />
                     </div>
                     <small class="form-text text-muted">Selecione o período para filtrar os senadores</small>
                  </div>
@@ -53,8 +53,8 @@
                     <label>Senadores:</label>
                     <select id="bxSenadores" class="form-control selectpicker" multiple data-live-search="true" aria-describedby="bxSenadoresHelp"
                             data-width="auto" title="Selecione um ou mais senador(es)" data-selected-text-format="count > 3"
-                            data-style="btn btn-outline-secondary"></select>
-                    <small id="bxSenadoresHelp" class="form-text text-muted">Selecione um ou mais senador(es)</small>
+                            data-style="btn btn-outline-secondary" data-max-options="10"></select>
+                    <small id="bxSenadoresHelp" class="form-text text-muted">Selecione um ou mais senador(es), limite máximo de 10 senadores</small>
                 </div>
             </div>
             <div class="row">
