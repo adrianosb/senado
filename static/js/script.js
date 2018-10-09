@@ -229,6 +229,17 @@ function process(data){
         }
       }
     });
+
+    for (var senador in data) {
+        rows = "";
+        for (var sigla in data[senador]) {
+            qtde = data[senador][sigla];
+            //<tr><th scope="row">1</th><td>Mark</td><td>Otto</td></tr>
+            row = '<tr><th scope="row">'+senador+'</th><td>'+sigla+'</td><td>'+qtde+'</td></tr>';
+            rows += row;
+        }
+        $("table tbody").append(rows);
+    }
 }
 
 function dynamicColors(myData) {
