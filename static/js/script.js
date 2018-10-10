@@ -234,11 +234,16 @@ function process(data){
         rows = "";
         for (var sigla in data[senador]) {
             qtde = data[senador][sigla];
+            if(isNaN(qtde)){
+                continue;
+            }
             //<tr><th scope="row">1</th><td>Mark</td><td>Otto</td></tr>
             row = '<tr><th scope="row">'+senador+'</th><td>'+sigla+'</td><td>'+qtde+'</td></tr>';
             rows += row;
         }
+        $('table').removeClass('d-none')
         $("table tbody").append(rows);
+
     }
 }
 
