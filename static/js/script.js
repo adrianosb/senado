@@ -248,7 +248,8 @@ function process(data){
 }
 
 function getDescricao(sigla){
-    switch(sigla) {
+    text = "";
+    switch(sigla.trim()) {
         case "AP": text = "art.13, caput-Atividade política/cultural LA-art.43"; break;
         case "AUS": text = "Ausente"; break;
         case "Abstenção": text = "Abstenção"; break;
@@ -282,6 +283,7 @@ function getDescricao(sigla){
         default:
                 text = "";
     }
+    return text;
 }
 
 function dynamicColors(myData) {
