@@ -238,12 +238,49 @@ function process(data){
                 continue;
             }
             //<tr><th scope="row">1</th><td>Mark</td><td>Otto</td></tr>
-            row = '<tr><th scope="row">'+senador+'</th><td>'+sigla+'</td><td>'+qtde+'</td></tr>';
+            row = '<tr><th scope="row">'+senador+'</th><td>'+sigla+'</td><td>'+getDescricao(sigla)+'</td><td>'+qtde+'</td></tr>';
             rows += row;
         }
         $('table').removeClass('d-none')
         $("table tbody").append(rows);
 
+    }
+}
+
+function getDescricao(sigla){
+    switch(sigla) {
+        case "AP": text = "art.13, caput-Atividade política/cultural LA-art.43"; break;
+        case "AUS": text = "Ausente"; break;
+        case "Abstenção": text = "Abstenção"; break;
+        case "EPR": text = ""; break;
+        case "L1": text = ""; break;
+        case "L2": text = ""; break;
+        case "L3": text = ""; break;
+        case "L4": text = ""; break;
+        case "L6": text = ""; break;
+        case "L7": text = ""; break;
+        case "LA": text = "art.43, §6º-Licença à adotante"; break;
+        case "LC": text = "art.44-A-Candidatura à Presidência/Vice-Presidência"; break;
+        case "LP": text = "Licença Particular"; break;
+        case "LAP": text = "art.43, §7º-Licença paternidade ou ao adotante "; break;
+        case "LS": text = "Licença sáude"; break;
+        case "LSP": text = "Licença Saúde-Particular"; break;
+        case "MIS": text = "MIS-Presente(art.40 - em Missão)"; break;
+        case "NA": text = "dispositivo não citado"; break;
+        case "NCom": text = "Não compareceu"; break;
+        case "Não": text = "Não"; break;
+        case "Não - Presidente Art.48 inciso XXIII": text = "Não - Presidente Art.48 inciso XXIII"; break;
+        case "Obstrução": text = "Obstrução"; break;
+        case "P-NRV": text = "Presente-Não registrou voto"; break;
+        case "P-OD": text = "Presente(obstrução declarada) "; break;
+        case "PSF": text = ""; break;
+        case "Presidente (art. 51 RISF)": text = ""; break;
+        case "REP": text = "Presente(art.67/13 - em Representação da Casa)"; break;
+        case "Sim": text = "Sim"; break;
+        case "Votou": text = "Votou"; break;
+        case "MERC": text = "Presente no Mercosul"; break;
+        default:
+                text = "";
     }
 }
 
