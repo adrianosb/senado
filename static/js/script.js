@@ -230,6 +230,7 @@ function process(data){
       }
     });
 
+    $("table tbody").empty();
     for (var senador in data) {
         rows = "";
         for (var sigla in data[senador]) {
